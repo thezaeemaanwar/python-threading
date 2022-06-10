@@ -3,7 +3,7 @@ from threading import *
 import time
 
 
-class MyThread(Thread):
+class Thread1(Thread):
     def run(self):
         for n in range(10):
             print("In MyThread 01 - ", n)
@@ -18,12 +18,12 @@ class Thread2(Thread):
 
 
 def main():
-    thread1 = MyThread()
-    thread2 = Thread2()
+    thread_1 = Thread1()
+    thread_2 = Thread2()
     print("I am parent")
-    thread1.start()
+    thread_1.start()
     time.sleep(3)
-    thread2.start()
+    thread_2.start()
     print("parent woke up")
 
 
