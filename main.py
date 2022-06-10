@@ -1,4 +1,3 @@
-from concurrent.futures import thread
 from threading import *
 import time
 
@@ -6,24 +5,36 @@ import time
 class Thread1(Thread):
     def run(self):
         for n in range(10):
-            print("In MyThread 01 - ", n)
+            print("\tIn MyThread 01 - ", n)
             time.sleep(2)
-            print("Thread 01 woke up - ",n)
+            print("\twakey - ", n)
 
 
 class Thread2(Thread):
     def run(self):
-        for n in range(10):
-            print("In Thread 02 ", n)
+        for n in range(30):
+            print("\t\tIn Thread 02 - ", n)
+            time.sleep(0.5)
+            print("\t\tWakey - ", n)
+
+
+class Thread3(Thread):
+    def run(self):
+        for n in range(5):
+            print("\t\t\tIn Thread 03 - ", n)
+            time.sleep(2)
+            print("\t\t\tWakey - ", n)
 
 
 def main():
     thread_1 = Thread1()
     thread_2 = Thread2()
+    thread_3 = Thread3()
     print("I am parent")
     thread_1.start()
-    time.sleep(3)
     thread_2.start()
+    thread_3.start()
+    time.sleep(5)
     print("parent woke up")
 
 
